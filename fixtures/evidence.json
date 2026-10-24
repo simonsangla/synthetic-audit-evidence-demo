@@ -1,0 +1,36 @@
+[
+  {
+    "subject_id": "south",
+    "dataset_id": "monthly_revenue",
+    "snapshot_hash": "sha256:synthetic-south-v1",
+    "synthetic_data": true,
+    "checks": [
+      {
+        "check_id": "revenue_bridge",
+        "status": "warning",
+        "expected": 1000.0,
+        "observed": 1002.5,
+        "tolerance": 1.0,
+        "evidence_refs": ["budget:south", "orders:south"],
+        "reason": "Observed revenue is outside the reporting tolerance."
+      }
+    ]
+  },
+  {
+    "subject_id": "north",
+    "dataset_id": "monthly_revenue",
+    "snapshot_hash": "sha256:synthetic-north-v1",
+    "synthetic_data": true,
+    "checks": [
+      {
+        "check_id": "revenue_bridge",
+        "status": "pass",
+        "expected": 1000.0,
+        "observed": 1000.0,
+        "tolerance": 1.0,
+        "evidence_refs": ["orders:north", "budget:north"],
+        "reason": "Observed revenue reconciles within tolerance."
+      }
+    ]
+  }
+]
